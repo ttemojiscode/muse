@@ -1,25 +1,37 @@
-# Software House — Homepage (PHP Version)
+# Software House Website — WordPress Setup (Laragon)
 
-Light theme professional homepage. Baad mein isy hi WordPress theme mein convert kiya jayega.
+Professional WordPress website setup for a software house offering
+**SEO, Digital Marketing, Web Designing & Web Development** services.
 
-## Test kaise karein
+> Note: GitHub code rakhne ki jagah hai, WordPress wahan run nahi hoti.
+> Is liye is repo mein complete one-click installer hai — ye aapke
+> Laragon localhost par asal WordPress install karta hai.
 
-**Option 1 — XAMPP / WAMP (easiest)**
-1. Is folder ko `htdocs` mein copy karein
-2. Browser mein kholein: `http://localhost/software-house-homepage`
+## Stack
+- **WordPress** (latest, wordpress.org se)
+- **Kadence Theme** (light theme) + **Kadence Blocks** plugin
+- **Rank Math SEO** plugin
+- **LiteSpeed Cache** plugin
 
-**Option 2 — PHP built-in server**
-```
-php -S localhost:8000
-```
-Phir browser: `http://localhost:8000`
+## Install kaise karein (Laragon, Windows)
 
-## Apni maloomat change karein
-Sirf `config.php` kholein — website ka naam, email, phone, WhatsApp number aur sheher wahan se poori site par change ho jayega.
+1. Is repo ki files `Install-WordPress.bat` aur `Install-WordPress.ps1`
+   Laragon ke www folder mein rakhein:
+   `C:\laragon\www`
+   (GitHub se Code → Download ZIP karke dono files nikaal lein)
+2. Laragon **Start All** karein (taake MySQL chale)
+3. `Install-WordPress.bat` par **double-click** karein aur `Y` likhein
+4. Script khud ye karega:
+   - Purana PHP code `muse` folder se hata kar `muse-old-php-backup` mein mehfooz karega
+   - WordPress download / install karega
+   - Kadence Theme, Kadence Blocks, Rank Math aur LiteSpeed Cache install karega
+   - Database `muse_wp` aur `wp-config.php` bana dega
+5. Browser mein `http://muse.test` khol kar WordPress wizard complete karein
+   (site ka naam + apna admin username/password khud set karein)
+6. wp-admin mein:
+   - **Appearance → Themes → Kadence → Activate**
+   - **Plugins →** Kadence Blocks, Rank Math, LiteSpeed Cache teeno **Activate**
 
-## Files
-- `index.php` — Homepage (saaray sections + contact form)
-- `config.php` — Site settings
-- `includes/header.php` / `footer.php` — Header/Footer (WordPress conversion ke liye tayyar structure)
-- `assets/css/style.css` — Light theme design
-- `assets/js/main.js` — Menu, slider, FAQ, counters, animations
+## Purana PHP Code
+Pehli PHP homepage is repo ki Git history mein mehfooz hai
+(commits `12a18f9` aur `82a67eb`) — kabhi zaroorat ho to wahan se mil jayegi.

@@ -1,13 +1,12 @@
+# Local backups made by the installer
+/muse-old-php-backup/
+
 # OS / editor
 .DS_Store
 Thumbs.db
 *.swp
-*.swo
-*~
-
-# Local test artifacts
 *.log
 
-# Credentials / env (if added later)
+# Credentials / env
 .env
 config.local.php
