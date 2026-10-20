@@ -1,0 +1,13 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Local test artifacts
+*.log
+
+# Credentials / env (if added later)
+.env
+config.local.php
