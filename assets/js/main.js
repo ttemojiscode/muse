@@ -22,6 +22,18 @@ slides.forEach((_,i)=>{const d=document.createElement('button');d.setAttribute('
 function show(i,manual){slides[idx].classList.remove('active');dotsWrap.children[idx].classList.remove('active');idx=i;slides[idx].classList.add('active');dotsWrap.children[idx].classList.add('active');if(manual){clearInterval(timer);start()}}
 function start(){timer=setInterval(()=>show((idx+1)%slides.length),4000)} if(slides.length)start();
 
+// Portfolio filters
+document.querySelectorAll('.filter-btn').forEach(btn=>btn.addEventListener('click',()=>{
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const f=btn.dataset.filter;
+  document.querySelectorAll('.project').forEach(card=>{
+    const show=f==='all'||card.dataset.cat===f;
+    card.classList.toggle('hide',!show);
+    if(show){card.classList.add('visible')}
+  });
+}));
+
 // FAQ accordion
 document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{
   const item=q.parentElement,wasOpen=item.classList.contains('open');

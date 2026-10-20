@@ -23,10 +23,12 @@ $services = [
     ['icon'=>'💻','title'=>'Web Development','desc'=>'Business websites, e-commerce stores aur custom web apps — secure, fast aur scalable.','list'=>['Business Websites','E-commerce Stores','Custom Web Apps']],
 ];
 $projects = [
-    ['tag'=>'E-commerce','title'=>'Online Fashion Store','result'=>'Sales +180% in 6 months'],
-    ['tag'=>'SEO','title'=>'Local Clinic Website','result'=>'Google Traffic +250%'],
-    ['tag'=>'Web App','title'=>'Booking Management System','result'=>'Manual work -70%'],
-    ['tag'=>'Corporate','title'=>'Real Estate Company Site','result'=>'Leads +140%'],
+    ['cat'=>'ecommerce','tag'=>'E-commerce','icon'=>'🛍️','grad'=>'g1','title'=>'Online Fashion Store','desc'=>'Modern e-commerce website with online payments, product filters and a fast checkout experience.','result'=>'Sales +180% in 6 months'],
+    ['cat'=>'seo','tag'=>'SEO','icon'=>'🔍','grad'=>'g2','title'=>'Local Clinic Website','desc'=>'Complete local SEO, Google Business Profile and a fast appointment-booking website.','result'=>'Google Traffic +250%'],
+    ['cat'=>'web','tag'=>'Web App','icon'=>'📅','grad'=>'g3','title'=>'Booking Management System','desc'=>'Custom web app that automated bookings, reminders and customer records for the whole team.','result'=>'Manual work -70%'],
+    ['cat'=>'web','tag'=>'Web Design','icon'=>'🏢','grad'=>'g4','title'=>'Real Estate Company Site','desc'=>'Premium property website with advanced search, featured listings and lead-capture forms.','result'=>'Leads +140%'],
+    ['cat'=>'seo','tag'=>'SEO','icon'=>'📈','grad'=>'g2','title'=>'Restaurant SEO Campaign','desc'=>'Menu SEO, local keywords and review strategy that put the restaurant on Google\'s first page.','result'=>'Reservations +95%'],
+    ['cat'=>'ecommerce','tag'=>'E-commerce','icon'=>'💄','grad'=>'g1','title'=>'Beauty Products Store','desc'=>'Beautiful online store with Instagram shop integration and WhatsApp ordering.','result'=>'Online orders 3x growth'],
 ];
 $plans = [
     ['name'=>'Starter','price'=>'PKR 49,999','per'=>'/ project','features'=>['5 Pages Website','Mobile Responsive','Basic SEO Setup','Contact Form','1 Month Support'],'hot'=>false],
@@ -110,11 +112,24 @@ include 'includes/header.php';
 
 <!-- ================= PORTFOLIO ================= -->
 <section class="section alt" id="portfolio"><div class="container">
-  <div class="sec-head reveal"><span class="badge">Portfolio</span><h2>Recent Work & Results</h2></div>
-  <div class="cards">
+  <div class="sec-head reveal"><span class="badge">Portfolio</span><h2>Recent Work & <span class="grad">Real Results</span></h2>
+    <p style="color:var(--muted);margin-top:10px">Har project ke peeche ek kahani hai — aur numbers uska saboot hain.</p></div>
+  <div class="filters" id="filters">
+    <button class="filter-btn active" data-filter="all">All Work</button>
+    <button class="filter-btn" data-filter="web">Web Design / Apps</button>
+    <button class="filter-btn" data-filter="seo">SEO</button>
+    <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
+  </div>
+  <div class="cards portfolio-grid">
     <?php foreach($projects as $p): ?>
-    <article class="card project reveal"><span class="tag"><?php echo $p['tag']; ?></span>
-      <h3><?php echo $p['title']; ?></h3><p class="result">📈 <?php echo $p['result']; ?></p></article>
+    <article class="card project reveal" data-cat="<?php echo $p['cat']; ?>">
+      <div class="project-media <?php echo $p['grad']; ?>"><span class="project-icon"><?php echo $p['icon']; ?></span><span class="tag media-tag"><?php echo $p['tag']; ?></span></div>
+      <div class="project-body">
+        <h3><?php echo $p['title']; ?></h3>
+        <p><?php echo $p['desc']; ?></p>
+        <div class="project-foot"><span class="result-pill">📈 <?php echo $p['result']; ?></span><a href="#contact" class="card-link">Case Study →</a></div>
+      </div>
+    </article>
     <?php endforeach; ?>
   </div>
 </div></section>
